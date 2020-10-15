@@ -1,5 +1,8 @@
 language: go
 os: linux
+arch:
+  - amd64
+  - arm64
 go:
   - "1.14"
 sudo: required
