@@ -11,6 +11,19 @@ services:
 
 go_import_path: github.com/GoogleContainerTools/container-diff
 
+install:
+  - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
+    wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/arm64/docker-ce_18.06.0~ce~3-0~ubuntu_arm64.deb;
+    sudo apt-get purge -y docker.io;
+    sudo apt-get autoclean;
+    sudo dpkg -i docker-ce_18.06.0~ce~3-0~ubuntu_arm64.deb;
+    else
+    wget https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce_18.06.0~ce~3-0~ubuntu_amd64.deb;
+    sudo apt-get purge -y docker.io;
+    sudo apt-get autoclean;
+    sudo dpkg -i docker-ce_18.06.0~ce~3-0~ubuntu_amd64.deb;
+    fi
+
 script:
  - service docker status
  - cat /home/travis/.docker/config.json
