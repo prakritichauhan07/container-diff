@@ -12,4 +12,6 @@ services:
 go_import_path: github.com/GoogleContainerTools/container-diff
 
 script:
+ - service docker status
+ - cat /home/travis/.docker/config.json
  - travis_wait make test integration
