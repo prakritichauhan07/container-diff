@@ -60,7 +60,7 @@ test: $(BUILD_DIR)/$(PROJECT)
 
 .PHONY: integration
 integration: $(BUILD_DIR)/$(PROJECT)
-	go test -v -tags integration $(REPOPATH)/tests -timeout 50m
+	go test -v -tags integration $(REPOPATH)/tests -timeout 100m
 
 .PHONY: release
 release: cross
