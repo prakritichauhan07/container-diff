@@ -16,7 +16,7 @@
 GIT_VERSION ?= $(shell git describe --always --tags --long --dirty)
 
 GOOS ?= $(shell go env GOOS)
-GOARCH = amd64
+GOARCH ?= $(shell go env GOARCH)
 BUILD_DIR ?= ./out
 ORG := github.com/GoogleContainerTools
 PROJECT := container-diff
